@@ -17,11 +17,12 @@ body {
 
 a {
     text-decoration: none;
-    color: #E7332B;
+    cursor: pointer;
+    /* color: #E7332B; */
 }
 
 
 a:hover {
     text-decoration: none;
-    color: #eb5850;
+    /* color: #eb5850; */
 }
