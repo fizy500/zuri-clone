@@ -14,6 +14,10 @@ header {
     box-shadow: rgb(0 0 0 / 20%) 0px 2px 4px -1px, rgb(0 0 0 / 14%) 0px 4px 5px 0px, rgb(0 0 0 / 12%) 0px 1px 10px 0px;
 }
 
+body {
+    position: relative;
+}
+
 nav {
     display: flex;
     justify-content: space-between;
@@ -35,6 +39,48 @@ nav {
 
 .plain-link-active {
     border-bottom: 2px solid rgb(231, 51, 43);
+}
+
+#modal-wrapper {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    background-color: rgba(0, 0, 0, .2);
+}
+
+.modal-container {
+    background-color: #fff ;
+    border: 1px solid #fff ;
+    border-radius: 10px ;
+    left: 50% ;
+    padding: 70px 44px;
+    position: absolute ;
+    top: 50% ;
+    -webkit-transform: translate(-50%, -50%) ;
+    transform: translate(-50%, -50%) ;
+    width:37%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+}
+
+#modal-container div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 20px;
 }
 
 main {
@@ -126,12 +172,14 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+
     background-image: url("/images/bgsection2.063bd869082548bafa74.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    height: 700px;
+    /* height: 700px; */
     width: fit-content;
+    padding: 70px 0px 80px 0px;
 }
 
 .second-section-container {
@@ -140,10 +188,12 @@ main {
     align-items: center;
     align-content: center;
     width: 90%;
+    gap: 20px;
 }
 
 .second-section-text {
-    width: 50%;
+    width: 50vw;
+    /* width: 50%; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -161,8 +211,7 @@ main {
 }
 
 .second-section-img {
-    width: 50%;
-    align-self: flex-end;
+    width: 50vw;
 }
 
 .countries-container {
@@ -251,11 +300,31 @@ main {
     /* word-wrap: break-word; */
 }
 
+.companies p,
+.skills p:hover {
+    /* animation: go-up .8s; */
+    transform: scaleY(1.18);
+
+}
+
+@keyframes go-up {
+    from {
+        height: 500px;
+    }
+
+    to {
+        height: 700px;
+    }
+
+}
+
+
 .fourth-section {
     display: flex;
     justify-content: center;
     width: 100%;
     background-color: rgb(255, 248, 229);
+    position: relative;
 }
 
 .fourth-section-container {
@@ -265,6 +334,7 @@ main {
     flex-direction: column;
     gap: 30px;
     padding: 80px 0px;
+    z-index: 20;
 }
 
 .cards-wrapper {
@@ -286,7 +356,7 @@ main {
 }
 
 .card {
-    width: 27%;
+    width: 28%;
     height: 300px;
     display: flex;
     justify-content: space-between;
@@ -300,10 +370,10 @@ main {
 }
 
 .card-p {
-    font-size: 15px !important;
-    margin: auto !important;
+    font-size: 15px ;
+    margin: auto ;
     text-align: center;
-    width: 97% !important;
+    width: 97% ;
 }
 
 .card:hover {
@@ -325,12 +395,19 @@ main {
     gap: 20px;
 }
 
-.links-container {
+/* .links-container {
     width: 90%;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     text-align: center;
+} */
+
+.card-position-div {
+    position: absolute;
+    top: 48%;
+    right: 78%;
+    z-index: 0;
 }
 
 .btn {
@@ -402,7 +479,6 @@ footer {
 }
 
 /* Media Queries */
-
 @media screen and (max-width:720px) {
 
     nav {
@@ -412,6 +488,14 @@ footer {
         padding: 20px 40px;
         gap: 70px;
         width: 100%;
+    }
+    .modal-container {
+        padding:20px 44px;
+        width:350px;
+    }
+    #modal-container div {
+        gap: 10px;
+        padding:5px;
     }
 
     .plain-link1,
@@ -423,18 +507,42 @@ footer {
     .first-section-container {
         display: flex;
         flex-direction: column;
-        /* flex-wrap: wrap; */
-        /* justify-content: space-between;
+        flex-wrap: wrap;
+        justify-content: space-between;
         align-items: center;
         width: 90%;
-        background: #fffdff; */
+        background: #fffdff;
+        text-align: center;
+    }
+
+    .first-section-first-flex {
+        width: 100%;
     }
 
     .first-section-details {
-        font-size: 16px ;
-        margin: auto ;
+        font-size: 16px;
+        margin: auto;
         text-align: center;
-        width: 97% ;
+        width: 97%;
+    }
+
+    .first-section-second-flex {
+        width: 100%;
+    }
+
+    .links-container {
+        width: 100%;
+    }
+
+    .second-section-container {
+        flex-direction: column;
+    }
+
+    .second-section-img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
     }
 
     .card {
@@ -472,27 +580,28 @@ footer {
         gap: 20px;
     }
 
-
-
-
     .btn {
         background-color: #e7332b;
         border-radius: 0 0 8px 0;
         color: #fff;
         font-family: Graphik;
-        font-size: 16px;
+        font-size: 12px;
         font-style: normal;
         font-weight: 400;
         line-height: 19px;
-        margin-right: 15px;
         padding: 8px 25px;
         text-transform: none;
     }
 
-    /* .skills,
-    .companies {
-        width: 90%;
-    } */
+    .second-section-text {
+        width: 100%;
+    }
+
+    .second-section-img {
+        width: 100%;
+        align-self: center;
+    }
+
 
     .third-section-header1,
     .third-section-header2,
@@ -505,23 +614,28 @@ footer {
         width: 100%;
     }
 
-    /* .third-section-header4 {} */
-
-    .companies p,
-    .skills p {
-        align-items: center;
-        background: #fff;
-        border-radius: 8px;
-        box-shadow: 0 8px 30px hsla(0, 0%, 48%, .16);
-        display: flex;
-        font-family: Graphik;
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 400;
-        height: 100%;
-        justify-content: center;
-        line-height: 33px;
-        padding: 5px;
-        text-align: center;
+    .large-text {
+        font-size: 35px;
     }
+
+.large-text1 {
+    padding-left: 0px;
+}
+.companies p,
+.skills p {
+    align-items: center;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 8px 30px hsla(0, 0%, 48%, .16);
+    display: flex;
+    font-family: Graphik;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    height: 100%;
+    justify-content: center;
+    line-height: 33px;
+    padding: 5px;
+    text-align: center;
+}
 }
