@@ -37,8 +37,8 @@ nav {
     color: #161617;
 }
 
-.plain-link-active {
-    border-bottom: 2px solid rgb(231, 51, 43);
+.active {
+    border-bottom: 5px solid rgb(231, 51, 43);
 }
 
 #modal-wrapper {
